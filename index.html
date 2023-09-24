@@ -12,6 +12,30 @@
 
 	<!-- *******  Link To Goggle Fonts  *******  -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,800;1,900&display=swap" rel="stylesheet">
+ 
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+      function sendMail(){
+        (function(){
+          emailjs.init("5M_WG-j9PNhweWx8e");
+        })();
+        var params={
+          sendername:document.getElementById('sendername').value,
+         subject:document.getElementById('subject').value,
+         message:document.getElementById('message').value,
+         email:document.getElementById("email").value
+        }
+        var serviceID="service_ujalsgj"
+        var templateID="template_j4ru9it"
+        emailjs.send(serviceID,templateID,params)
+        .then(res=>{
+          alert("OK good")
+        })
+        .catch(alert("OK"))
+   
+        }
+      
+    </script>
 
 </head>
 <body>
@@ -166,27 +190,27 @@
             <form class="messageForm">
               
               <div class="inputGroup halfWidth">
-                <input type="text" name="" required="required">
+                <input id="sendername" type="text" name="" required="required">
                 <label>Your Name</label>
               </div>
     
               <div class="inputGroup halfWidth">
-                <input type="email" name="" required="required">
+                <input type="email" id="email" name="" required="required">
                 <label>Email</label>
               </div>
     
               <div class="inputGroup fullWidth">
-                <input type="text" name="" required="required">
+                <input id="subject" type="text" name="" required="required">
                 <label>Subject</label>
               </div>
     
               <div class="inputGroup fullWidth">
-                <textarea required="required"></textarea>
+                <textarea id="message" required="required"></textarea>
                 <label>Say Something</label>
               </div>
     
               <div class="inputGroup fullWidth">
-                <button>Send Message</button>
+                <button onclick="sendMail()">Send Message</button>
               </div>
     
             </form>
