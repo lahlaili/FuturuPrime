@@ -28,11 +28,23 @@
         var serviceID="service_ujalsgj"
         var templateID="template_j4ru9it"
         emailjs.send(serviceID,templateID,params)
-        .then(res=>{
-          alert("OK good")
+        // .then(res=>{
+        //   alert("OK good")
+        // })
+        // .catch(error=>{
+        //   alert('OK')
+        // })
+        function someAsyncFunction() {
+          return Promise.resolve("Success");
+        }
+
+      someAsyncFunction()
+        .then((res) => {
+          alert("Votre message a été envoyé avec succé");
         })
-        .catch(alert("OK"))
-   
+        .catch((error) => {
+          alert("Error: " + error); 
+        });
         }
       
     </script>
